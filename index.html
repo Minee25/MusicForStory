@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="bg"></div>
+        <div class="content">
+            <div class="box">
+                <div class="box-info">
+
+                    <div class="poster">
+                        <img src="assets/images/poster.png" alt="">
+                    </div>
+
+                    <div class="info">
+                        <div class="info-header">
+                            <div class="title">
+                                <div class="name">
+                                    <h1>Muse</h1>
+                                </div>
+                                <div class="artist">Missizfreak</div>
+                            </div>
+                            <div class="like">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+                        </div>
+
+                        <div class="box-video-control">
+
+                            <div class="video-timeline">
+                                <div class="timeline"></div>
+                            </div>
+                            <div class="time">
+                                <div class="playing" id="timer">0:00</div>
+                                <div class="end">3:20</div>
+                            </div>
+                            <div class="video-control">
+                                <ul>
+                                    <li>
+                                        <button>
+                                            <i class="fa fa-shuffle"></i>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button>
+                                            <i class="fa fa-backward-step highlight"></i>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="button-highlight">
+                                            <i class="fa-solid fa-pause highlight"></i>
+                                            <i class="fa-solid fa-play highlight hidden"></i>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button>
+                                            <i class="fa-solid fa-forward-step highlight"></i>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button>
+                                            <i class="fa-solid fa-repeat"></i>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var timerElement = document.getElementById('timer');
+        var minutes = 0;
+        var seconds = 0;
+
+        function startTimer() {
+            setInterval(updateTimer, 1000); // นับเวลาทุก ๆ 1 วินาที (1000 มิลลิวินาที)
+
+            function updateTimer() {
+                seconds++;
+                if (seconds === 60) {
+                    seconds = 0;
+                    minutes++;
+                }
+                timerElement.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+            }
+        }
+
+        startTimer(); // เริ่มต้นการนับเวลาเมื่อเว็บไซต์โหลดเสร็จ
+    </script>
+</body>
+
+</html>
